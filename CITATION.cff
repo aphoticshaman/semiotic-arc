@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Semiotic Reasoning for Abstract Visual Tasks"
+version: "0.1.0"
+date-released: 2024-12-31
+url: "https://github.com/crystalline-labs/semiotic-arc"
+repository-code: "https://github.com/crystalline-labs/semiotic-arc"
+license: MIT
+authors:
+  - family-names: Cardwell
+    given-names: Ryan
+    affiliation: Crystalline Labs
+keywords:
+  - artificial intelligence
+  - abstract reasoning
+  - visual cognition
+  - semiotics
+  - ARC-AGI
+abstract: >
+  A dual-channel cognitive architecture for abstract visual reasoning tasks,
+  based on the insight that human visual cognition exploits both evolved
+  (phylogenetically hardwired) pattern detectors and conditioned (ontogenetically
+  learned) symbolic associations. Visual puzzles function as compressed reality
+  models simulating physical, mathematical, or social phenomena.
+references:
+  - type: article
+    authors:
+      - family-names: Chollet
+        given-names: François
+    title: "On the Measure of Intelligence"
+    year: 2019
+    journal: "arXiv preprint arXiv:1911.01547"
+  - type: book
+    authors:
+      - family-names: Gibson
+        given-names: James J.
+    title: "The Ecological Approach to Visual Perception"
+    year: 1979
+    publisher: "Houghton Mifflin"
+  - type: article
+    authors:
+      - family-names: Spelke
+        given-names: Elizabeth S.
+    title: "Core Knowledge"
+    year: 2007
+    journal: "Developmental Science"
+    volume: 10
+    issue: 1

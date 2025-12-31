@@ -1,0 +1,42 @@
+# Rust
+target/
+Cargo.lock
+*.rs.bk
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Build artifacts
+*.wasm
+pkg/
+node_modules/
+
+# Training data (keep schema, not raw data)
+data/raw/
+*.jsonl.tmp
+
+# Secrets
+.env.local
+credentials.json
+*.pem
+*.key
