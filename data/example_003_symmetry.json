@@ -1,0 +1,77 @@
+{
+  "task_id": "example_003_mirror_completion",
+  "arc_reference": "https://arcprize.org/play?task=training/05269061",
+  "perception": {
+    "objects": [
+      {
+        "id": "partial_shape",
+        "color": 2,
+        "shape": "irregular",
+        "size": 8,
+        "position": {"centroid": [2, 4], "bbox": [0, 2, 4, 6]},
+        "semantic_role": "agent"
+      },
+      {
+        "id": "axis_line",
+        "color": 5,
+        "shape": "line",
+        "size": 8,
+        "position": {"centroid": [4, 4], "bbox": [4, 0, 4, 8]},
+        "semantic_role": "boundary"
+      }
+    ],
+    "relations": [
+      {"subject": "partial_shape", "predicate": "left_of", "object": "axis_line"}
+    ],
+    "groups": []
+  },
+  "patterns": {
+    "symmetry": [
+      {"type": "vertical", "axis": [4], "objects": ["partial_shape"]}
+    ],
+    "repetition": [],
+    "sequence": []
+  },
+  "transformation": {
+    "operations": [
+      {
+        "type": "reflect",
+        "subject": "partial_shape",
+        "parameters": {"axis": "vertical", "axis_position": 4},
+        "condition": null
+      }
+    ],
+    "rule_natural_language": "Reflect the shape across the gray vertical line to complete the symmetric pattern",
+    "rule_abstract": "output = input UNION reflect(partial_shape, axis_line)"
+  },
+  "reasoning": {
+    "trace": [
+      {"step": 1, "observation": "Red shape on left side only", "inference": "Pattern is incomplete", "confidence": 0.8},
+      {"step": 2, "observation": "Gray vertical line in middle", "inference": "This is a symmetry axis", "confidence": 0.9},
+      {"step": 3, "observation": "Right side is empty", "inference": "Mirror image should go there", "confidence": 0.85},
+      {"step": 4, "observation": "Output shows mirrored red shape", "inference": "Reflection across axis confirmed", "confidence": 1.0}
+    ],
+    "hypotheses_considered": [
+      {
+        "hypothesis": "Copy shape to the right unchanged",
+        "evidence_for": ["Shape appears on right"],
+        "evidence_against": ["Shape is mirrored, not identical"],
+        "accepted": false
+      },
+      {
+        "hypothesis": "Reflect shape across vertical axis",
+        "evidence_for": ["Gray line acts as mirror", "Output is symmetric"],
+        "evidence_against": [],
+        "accepted": true
+      }
+    ],
+    "key_insight": "The gray line is a mirror - complete the pattern by reflecting across it"
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "cognitive_load": 3,
+    "primary_skill": "symmetry",
+    "annotator": "crystalline_labs",
+    "timestamp": "2026-01-02T00:00:00Z"
+  }
+}

@@ -8,6 +8,28 @@ The goal: **Capture how humans think**, not just what the answer is.
 
 ---
 
+## Two Formats
+
+### Quick Format (3 fields, 2 minutes)
+For drive-by contributions. Minimum viable annotation.
+
+```json
+{
+  "task_id": "training/007bbfb7",
+  "rule": "Tile the small pattern to fill the larger output grid",
+  "insight": "The input is a repeating unit - scale up by copying it in a grid pattern"
+}
+```
+
+See `schema/quick_schema.json` and `data/quick/` for examples.
+
+### Full Format (13 layers, 15+ minutes)
+For high-quality training data. Complete cognitive trace.
+
+See `schema/semiotic_schema.json` and `data/example_*.json`.
+
+---
+
 ## The Process
 
 ### 1. Perceive (Layers 1-5)

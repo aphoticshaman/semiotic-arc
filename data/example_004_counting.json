@@ -1,0 +1,92 @@
+{
+  "task_id": "example_004_count_and_fill",
+  "arc_reference": "https://arcprize.org/play?task=training/1cf80156",
+  "perception": {
+    "objects": [
+      {
+        "id": "marker_1",
+        "color": 1,
+        "shape": "point",
+        "size": 1,
+        "position": {"centroid": [2, 3], "bbox": [2, 3, 2, 3]},
+        "semantic_role": "marker"
+      },
+      {
+        "id": "marker_2",
+        "color": 1,
+        "shape": "point",
+        "size": 1,
+        "position": {"centroid": [5, 1], "bbox": [5, 1, 5, 1]},
+        "semantic_role": "marker"
+      },
+      {
+        "id": "marker_3",
+        "color": 1,
+        "shape": "point",
+        "size": 1,
+        "position": {"centroid": [7, 6], "bbox": [7, 6, 7, 6]},
+        "semantic_role": "marker"
+      },
+      {
+        "id": "output_region",
+        "color": 0,
+        "shape": "rectangle",
+        "size": 9,
+        "position": {"centroid": [1, 1], "bbox": [0, 0, 3, 3]},
+        "semantic_role": "container"
+      }
+    ],
+    "relations": [],
+    "groups": [
+      {"id": "all_markers", "members": ["marker_1", "marker_2", "marker_3"], "grouping_criterion": "color"}
+    ]
+  },
+  "patterns": {
+    "symmetry": [],
+    "repetition": [
+      {"motif": "marker_1", "count": 3, "direction": "irregular"}
+    ],
+    "sequence": []
+  },
+  "transformation": {
+    "operations": [
+      {
+        "type": "fill",
+        "subject": "output_region",
+        "parameters": {"fill_count": "count(markers)", "fill_color": 1},
+        "condition": null
+      }
+    ],
+    "rule_natural_language": "Count the blue dots and fill that many cells in the output region",
+    "rule_abstract": "fill(output_region, count(markers), marker.color)"
+  },
+  "reasoning": {
+    "trace": [
+      {"step": 1, "observation": "3 blue dots scattered on grid", "inference": "These are countable markers", "confidence": 0.9},
+      {"step": 2, "observation": "Output shows 3 blue cells in a row", "inference": "Number of filled cells = number of dots", "confidence": 0.95},
+      {"step": 3, "observation": "Dot positions don't match output positions", "inference": "Position irrelevant, only count matters", "confidence": 0.9}
+    ],
+    "hypotheses_considered": [
+      {
+        "hypothesis": "Dots move to form a line",
+        "evidence_for": ["Blue appears in output"],
+        "evidence_against": ["3 dots become 3 adjacent cells, positions differ"],
+        "accepted": false
+      },
+      {
+        "hypothesis": "Count dots, output that many filled cells",
+        "evidence_for": ["3 dots, 3 cells filled", "Consistent across examples"],
+        "evidence_against": [],
+        "accepted": true
+      }
+    ],
+    "key_insight": "This is a counting task - the scattered markers encode a number, output represents that count"
+  },
+  "metadata": {
+    "difficulty": "medium",
+    "cognitive_load": 4,
+    "primary_skill": "counting",
+    "annotator": "crystalline_labs",
+    "timestamp": "2026-01-02T00:00:00Z"
+  }
+}

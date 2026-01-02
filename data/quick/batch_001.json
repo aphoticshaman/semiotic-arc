@@ -1,0 +1,72 @@
+[
+  {
+    "task_id": "training/007bbfb7",
+    "rule": "Tile the small pattern to fill the larger output grid",
+    "insight": "The input is a repeating unit - scale up by copying it in a grid pattern",
+    "objects": [["mixed", "pattern"]],
+    "skill": "pattern_completion"
+  },
+  {
+    "task_id": "training/00d62c1b",
+    "rule": "Extend each colored line until it hits the grid boundary",
+    "insight": "Lines are seeds that grow in their natural direction until blocked",
+    "objects": [["various", "agent"]],
+    "skill": "spatial_reasoning"
+  },
+  {
+    "task_id": "training/017c7c7b",
+    "rule": "Find the unique colored cell and flood-fill its enclosed region",
+    "insight": "The single different-colored pixel marks which region to fill",
+    "objects": [["gray", "boundary"], ["colored", "marker"]],
+    "skill": "color_mapping"
+  },
+  {
+    "task_id": "training/025d127b",
+    "rule": "Rotate the pattern 90 degrees clockwise",
+    "insight": "Pure rotation transformation - no other changes",
+    "objects": [["mixed", "pattern"]],
+    "skill": "spatial_reasoning"
+  },
+  {
+    "task_id": "training/0520fde7",
+    "rule": "Overlay the two grids - where both have color, output has color",
+    "insight": "Boolean AND operation on two patterns",
+    "objects": [["blue", "mask"], ["red", "mask"]],
+    "skill": "analogy"
+  },
+  {
+    "task_id": "training/05f2a901",
+    "rule": "Replace each colored pixel with a 3x3 block of that color",
+    "insight": "Scale up by factor of 3 - each pixel becomes a block",
+    "objects": [["various", "agent"]],
+    "skill": "spatial_reasoning"
+  },
+  {
+    "task_id": "training/06df4c85",
+    "rule": "Complete the symmetric pattern across the axis of symmetry",
+    "insight": "Find the partial symmetry and mirror to complete it",
+    "objects": [["mixed", "pattern"]],
+    "skill": "symmetry"
+  },
+  {
+    "task_id": "training/08ed6ac7",
+    "rule": "Move all colored objects to align at the bottom edge",
+    "insight": "Gravity simulation - objects fall down until they stack",
+    "objects": [["various", "agent"]],
+    "skill": "object_manipulation"
+  },
+  {
+    "task_id": "training/09629e4f",
+    "rule": "Color in cells based on the number pattern encoded in the input",
+    "insight": "Numbers are encoded spatially - decode and render",
+    "objects": [["blue", "marker"]],
+    "skill": "counting"
+  },
+  {
+    "task_id": "training/0962bcdd",
+    "rule": "Find the bounding box of all colored pixels and crop to it",
+    "insight": "Tight crop - remove all empty border rows/columns",
+    "objects": [["various", "agent"]],
+    "skill": "spatial_reasoning"
+  }
+]

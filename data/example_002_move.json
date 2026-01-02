@@ -1,0 +1,76 @@
+{
+  "task_id": "example_002_object_movement",
+  "arc_reference": "https://arcprize.org/play?task=training/0d3d703e",
+  "perception": {
+    "objects": [
+      {
+        "id": "mover_1",
+        "color": 3,
+        "shape": "square",
+        "size": 4,
+        "position": {"centroid": [1, 1], "bbox": [0, 0, 2, 2]},
+        "semantic_role": "agent"
+      },
+      {
+        "id": "target_marker",
+        "color": 1,
+        "shape": "point",
+        "size": 1,
+        "position": {"centroid": [5, 5], "bbox": [5, 5, 5, 5]},
+        "semantic_role": "target"
+      }
+    ],
+    "relations": [
+      {"subject": "mover_1", "predicate": "left_of", "object": "target_marker"},
+      {"subject": "mover_1", "predicate": "above", "object": "target_marker"}
+    ],
+    "groups": []
+  },
+  "patterns": {
+    "symmetry": [],
+    "repetition": [],
+    "sequence": []
+  },
+  "transformation": {
+    "operations": [
+      {
+        "type": "move",
+        "subject": "mover_1",
+        "parameters": {"destination": "target_marker.position"},
+        "condition": null
+      }
+    ],
+    "rule_natural_language": "Move the colored square to the position marked by the blue dot",
+    "rule_abstract": "move(agent, target.position)"
+  },
+  "reasoning": {
+    "trace": [
+      {"step": 1, "observation": "Green square in top-left", "inference": "This is the object to manipulate", "confidence": 0.9},
+      {"step": 2, "observation": "Blue dot elsewhere on grid", "inference": "This marks a destination", "confidence": 0.8},
+      {"step": 3, "observation": "In output, square is at blue dot location", "inference": "Square moved to marker position", "confidence": 0.95},
+      {"step": 4, "observation": "Blue dot disappeared in output", "inference": "Marker consumed after use", "confidence": 0.9}
+    ],
+    "hypotheses_considered": [
+      {
+        "hypothesis": "Square grows toward the dot",
+        "evidence_for": ["Square and dot are connected in output"],
+        "evidence_against": ["Square size unchanged", "No path between them"],
+        "accepted": false
+      },
+      {
+        "hypothesis": "Square teleports to dot position",
+        "evidence_for": ["Square at new position", "Original position empty"],
+        "evidence_against": [],
+        "accepted": true
+      }
+    ],
+    "key_insight": "The blue dot is a destination marker - the agent moves to it, consuming the marker"
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "cognitive_load": 2,
+    "primary_skill": "spatial_reasoning",
+    "annotator": "crystalline_labs",
+    "timestamp": "2026-01-02T00:00:00Z"
+  }
+}

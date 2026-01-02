@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Quick Semiotic Annotation",
+  "description": "Simplified 3-field format for fast contributions",
+  "type": "object",
+  "required": ["task_id", "rule", "insight"],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "description": "ARC task identifier or URL"
+    },
+    "rule": {
+      "type": "string",
+      "description": "Plain English transformation rule (1-2 sentences)"
+    },
+    "insight": {
+      "type": "string",
+      "description": "The key 'aha' moment that unlocks the puzzle"
+    },
+    "objects": {
+      "type": "array",
+      "description": "Optional: list main objects as [color, role] pairs",
+      "items": {
+        "type": "array",
+        "items": [
+          {"type": "string", "description": "color name"},
+          {"type": "string", "description": "role: agent/target/marker/boundary"}
+        ]
+      }
+    },
+    "skill": {
+      "type": "string",
+      "description": "Optional: primary skill tested",
+      "enum": ["pattern_completion", "object_manipulation", "spatial_reasoning", "counting", "color_mapping", "symmetry", "analogy", "rule_induction"]
+    }
+  }
+}
