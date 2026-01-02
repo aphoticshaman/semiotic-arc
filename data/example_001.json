@@ -1,0 +1,77 @@
+{
+  "task_id": "example_001_color_fill",
+  "perception": {
+    "objects": [
+      {
+        "id": "boundary_1",
+        "color": 1,
+        "shape": "rectangle",
+        "size": 24,
+        "position": {"centroid": [4, 4], "bbox": [1, 1, 7, 7]},
+        "semantic_role": "container"
+      },
+      {
+        "id": "marker_1",
+        "color": 2,
+        "shape": "point",
+        "size": 1,
+        "position": {"centroid": [4, 4], "bbox": [4, 4, 4, 4]},
+        "semantic_role": "marker"
+      }
+    ],
+    "relations": [
+      {"subject": "marker_1", "predicate": "inside", "object": "boundary_1"}
+    ],
+    "groups": []
+  },
+  "patterns": {
+    "symmetry": [
+      {"type": "horizontal", "axis": [4], "objects": ["boundary_1"]},
+      {"type": "vertical", "axis": [4], "objects": ["boundary_1"]}
+    ],
+    "repetition": [],
+    "sequence": []
+  },
+  "transformation": {
+    "operations": [
+      {
+        "type": "fill",
+        "subject": "boundary_1",
+        "parameters": {"fill_color": 2, "preserve_boundary": true},
+        "condition": "contains marker"
+      }
+    ],
+    "rule_natural_language": "Fill the interior of any closed shape with the color of the marker inside it",
+    "rule_abstract": "FOR each container C: IF exists marker M inside C THEN fill(C.interior, M.color)"
+  },
+  "reasoning": {
+    "trace": [
+      {"step": 1, "observation": "I see a blue rectangle outline", "inference": "This is a container/boundary", "confidence": 0.9},
+      {"step": 2, "observation": "There's a red dot in the center", "inference": "This is a marker indicating something", "confidence": 0.8},
+      {"step": 3, "observation": "In output, the interior is filled red", "inference": "The marker color determines fill color", "confidence": 0.95},
+      {"step": 4, "observation": "The blue boundary is preserved", "inference": "Only interior changes, not boundary", "confidence": 1.0}
+    ],
+    "hypotheses_considered": [
+      {
+        "hypothesis": "Fill everything with red",
+        "evidence_for": ["Red appears in output"],
+        "evidence_against": ["Blue boundary is preserved"],
+        "accepted": false
+      },
+      {
+        "hypothesis": "Fill interior with marker color",
+        "evidence_for": ["Marker is red", "Interior becomes red", "Boundary preserved"],
+        "evidence_against": [],
+        "accepted": true
+      }
+    ],
+    "key_insight": "The marker acts as a 'paint bucket' - its color fills the container it's inside"
+  },
+  "metadata": {
+    "difficulty": "easy",
+    "cognitive_load": 3,
+    "primary_skill": "color_mapping",
+    "annotator": "crystalline_labs",
+    "timestamp": "2026-01-02T00:00:00Z"
+  }
+}
