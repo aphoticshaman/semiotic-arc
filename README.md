@@ -76,15 +76,37 @@ They're not. They're reality simulations.
 ```
 semiotic-arc/
 ├── src/
-│   ├── rust/           # Core reasoning engine (Rust)
-│   └── python/         # Training data generation
+│   ├── rust/              # Core reasoning engine (Rust, 16 modules)
+│   │   └── src/
+│   │       ├── lib.rs             # Main engine (13-layer cognitive pipeline)
+│   │       ├── grid.rs            # 64x64 packed 4-bit grid representation
+│   │       ├── operator.rs        # GridOperator trait, compose(), invert()
+│   │       ├── hypothesis.rs      # Beam search over operator compositions
+│   │       ├── grammar.rs         # Formal DSL grammar for grid operations
+│   │       ├── prior_bank.rs      # Amortized inference via compiled priors
+│   │       ├── discrimination.rs  # Hypothesis space partitioning
+│   │       ├── simulator.rs       # World simulation for off-policy planning
+│   │       ├── planner.rs         # A* planning with viability tracking
+│   │       ├── memory.rs          # 3-tier memory (Working/Episodic/Semantic)
+│   │       ├── cognitive_regulation.rs  # CBT/DBT-inspired self-healing
+│   │       ├── critical_analysis.rs     # Adversarial trap detection
+│   │       └── [more...]
+│   └── python/            # Training data generation
+├── research/              # Research materials
+│   ├── LLM_SYSTEM_PROMPTS.py       # 30+ system prompts for game-playing agents
+│   ├── TACTICAL_GUIDE.md           # Semiotic analysis methodology
+│   ├── CROSS_DOMAIN_INSIGHTS.md    # 55 eigenvalue-based insights
+│   ├── MULTI_MODEL_PROMPTS.md      # Prompts for multi-model coordination
+│   ├── ARC_AGI_3_INSIGHTS.md       # Interactive game architecture notes
+│   ├── ANTI_CHEAT_ANALYSIS.md      # Human-like agent behavior patterns
+│   └── ratchet_loss.py             # Asymmetric ratcheting loss
 ├── data/
-│   └── annotations/    # Semiotic puzzle annotations
+│   └── annotations/       # Semiotic puzzle annotations
 ├── prompts/
 │   └── system_prompt.md
 ├── docs/
-│   └── METHODOLOGY.md  # Field manual
-└── experiments/
+│   └── METHODOLOGY.md     # Field manual
+└── MANIFEST.md            # File inclusion manifest
 ```
 
 ---

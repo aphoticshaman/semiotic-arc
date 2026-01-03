@@ -72,6 +72,15 @@ pub mod sokoban;    // IDA* solver with deadlock detection
 // Semiotic analysis (core contribution)
 pub mod semiotics;  // Evolved patterns + Conditioned symbols + Reality models
 
+// Operator algebra (Gap 1 fix)
+pub mod operator;   // GridOperator trait, compose(), invert()
+
+// Hypothesis search (Gap 2 fix)
+pub mod hypothesis; // Beam search over operator compositions
+
+// Grid DSL grammar (Gap 3 fix)
+pub mod grammar;    // Formal grammar for grid operations
+
 #[cfg(feature = "wasm")]
 use wasm_bindgen::prelude::*;
 
