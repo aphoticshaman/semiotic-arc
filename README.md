@@ -75,6 +75,9 @@ They're not. They're reality simulations.
 
 ```
 semiotic-arc/
+├── ATLAS_TAXONOMY.md      # 16 abstraction types (ARC covers ~28%)
+├── POD_METHODOLOGY.md     # Formal knowledge generation methodology
+├── atlas_gen.py           # Meta-benchmark generator (working code)
 ├── src/
 │   ├── rust/              # Core reasoning engine (Rust, 16 modules)
 │   │   └── src/
